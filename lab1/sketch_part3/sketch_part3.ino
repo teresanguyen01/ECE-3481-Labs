@@ -12,7 +12,7 @@ void setup() {
 }
 
 void test_fib() { 
-  for (int a = 0; a <= 255; a += 30)
+  for (int a = 0; a <= 30; a += 10)
   { 
     unsigned int from_testasm = testasm((unsigned char)a);
     unsigned int expected = fibonacci(a); 

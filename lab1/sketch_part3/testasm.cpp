@@ -39,25 +39,34 @@ unsigned int testasm(unsigned char a)
 
 start_of_assembly:
       mov r24, %1
+
+      ; on return --> r25:r24 holds fib(n)
       call fib
+
+      ; copy result into 'out'
       rjmp end_of_assembly
 
 fib: 
-    tst r24
-    breq fib_ret0
+    tst r24        ; test if r24 is 0 --> Z if r24 is 0
+    breq fib_ret0  ; branch if n == 0
 
-    cpi r24, 1
+    ; base case --> if n == 1, return 1
+    cpi r24, 1      
     breq fib_ret1
 
+    ; recursion n >= 2. Want to save the original n on the stack
     push r24
 
-    subi r24, 1
-    call fib
+    ; calculate fib(n - 1)
+    subi r24, 1 ; r24 = n - 1
+    call fib ; return fib(n - 1) in r25:r24
 
+    ; save fib(n - 1) on the stack because fib(n - 2) will overwrite r25:r24
     push r24
     push r25
 
-    lds r18, 0
+    ; pop fib(n-1) high and low into temp --> pop saved n into r24
+    ; push fib(n-1) for later availability
     pop r21
     pop r20
     pop r24
@@ -65,22 +74,27 @@ fib:
     push r20
     push r21
 
+    ; calculate fib(n - 2)
     subi r24, 2
     call fib
 
+    ; get fib(n - 1)
     pop r21
     pop r20
 
+    ; add fib(n-2) + fib(n-1)
     add r24, r20
-    adc r25, r21
+    adc r25, r21 ; with carry
     ret
 
 fib_ret0: 
+    ; return 0 (16 bit)
     clr r24
     clr r25
     ret
 
 fib_ret1: 
+    ; return 1 (16 bit)
     ldi r24, 1
     clr r25
     ret
