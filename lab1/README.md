@@ -35,8 +35,27 @@ The test cases are similar, except we had to increase the increment since the fi
 
 ```
 Passed fib(0)
+Passed fib(1)
+Passed fib(2)
+Passed fib(3)
+Passed fib(4)
+Passed fib(5)
+Passed fib(6)
+Passed fib(7)
+Passed fib(8)
+Passed fib(9)
 Passed fib(10)
+Passed fib(11)
+Passed fib(12)
+Passed fib(13)
+Passed fib(14)
+Passed fib(17)
+Passed fib(18)
+Passed fib(19)
 Passed fib(20)
-Passed fib(30)
+Passed fib(21)
+Passed fib(22)
+Passed fib(23)
+Passed fib(24)
 Passed all tests!
 ```
