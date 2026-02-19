@@ -11,6 +11,16 @@
 // you want to debug your circuit on the breadboard, but the final implementation should not use these functions. 
 // (Note: the implication here is that you are to read off-board values through the SFR registers that map to these port locations.)
 
+
+/*
+
+Using polling -- every time button is pushed, on the Serial Monitor it says PUSHED and
+when I release the button, the terminal says RELEASE.
+
+Made by Lisa Chou and Teresa Nguyen
+
+*/
+
 #include <Arduino.h>
 
 const uint8_t BTN_MASK = (1 << 2);
