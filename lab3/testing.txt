@@ -1,0 +1,26 @@
+Sketch Part 1
+For this part, we first verified that the ADC value updated once per second and stayed within a stable range for normal room lighting. 
+We also confirmed that the LED brightness matched the general light level. For example, a brighter room resulted in a brighter LED. 
+We slowly moved the sensor from shadow to brighter light and then back again, confirming that the ADC value increased as light increased and decreased when the light level dropped. 
+We tested the full range of the sensor by placing it in a completely dark area and then shining an iPhone flashlight directly on it. 
+We also waved our hand quickly over the sensor to create rapid changes in light and confirmed that the code continued running and the serial output remained readable. 
+Additionally, we tilted the sensor and changed the angle of the light source to see if the readings behaved differently. 
+Finally, we repeated these experiments multiple times to ensure that the results were consistent.
+
+Sketch Part 2
+We first tested the ultrasonic sensor using its full range of 2–400 cm by walking away from the sensor while observing the Serial output and LED color. This confirmed that as distance increased, the LED shifted 
+toward red. Because this large range made it difficult to consistently detect the same moving object, we reduced the range to 10–40 cm, which made it easier to clearly observe the LED transition from green (close) to red (far).
+To verify normal interaction, we checked that the Serial Monitor updated once per second, that the reported distance matched the approximate physical distance of the object, and that the photocell correctly controlled LED brightness.
+Covering the sensor made the LED dimmer, while shining a phone flashlight made it brighter.
+We quickly moved objects in and out of range, tilted objects at different angles, and tested distances outside the 10–40 cm range to confirm values were properly clamped. 
+We also rapidly covered and uncovered the photocell to simulate sudden lighting changes. In all cases, the program continued running correctly and the LED behavior remained consistent.
+
+Sketch Part 3: I2C Ver.
+First, we verified the OLED display and I2C connection by powering the board and confirming the screen initialized correctly at address 0x3C. We checked that the display cleared on startup and that the circle and the ENC value appeared and updated smoothly.
+To test normal interaction, we slowly rotated the encoder in both directions and confirmed that the ENC value increased and decreased as expected while staying within the 0–255 range. We also verified that when the value was near 128 the circle moved very slowly or stopped, 
+and that turning the encoder farther from the center made the circle move faster. We let the program run for a while to make sure the circle consistently bounced off the edges of the screen.
+For non standard tests, we spun the encoder quickly and moved it back and forth to see if the debounce logic prevented erratic jumps. 
+We also tested extreme values near 0 and 255 to make sure the value stayed clamped and the motion remained stable. 
+Finally, we reset the board several times to confirm the display always initialized correctly.
+
+Sketch Part 3: SPI Ver.
