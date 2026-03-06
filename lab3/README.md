@@ -26,3 +26,9 @@ To draw the bouncing ball, we updated the screen every 20 ms. The ball has radiu
 
 The video is located as ```lab3/sketch_part3/My Movie.mov```.
 
+For the extra credit SPI version, we connected the OLED using the SPI pins (MOSI, SCK, CS, DC, and RST) and implemented our own SPI communication functions instead of using the Adafruit library. We initialized the SSD1306 display by sending the required command sequence and used a framebuffer to store pixel data before writing it to the display page-by-page. The same rotary encoder logic and bouncing ball behavior were used, but the drawing and screen updates were handled through our custom SPI display functions.
+
+The video is located as ```lab3/sketch_extracredit/My Movie.mov```.
+
+
+
