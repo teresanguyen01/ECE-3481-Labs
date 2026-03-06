@@ -25,17 +25,21 @@ Finally, we reset the board several times to confirm the display always initiali
 
 Sketch Part 3: SPI Ver. (Extra Credit)
 We implemented the OLED display using the SPI interface and our own SPI communication functions instead of the Adafruit display library. 
-First, we verified that the SPI wiring and initialization sequence worked correctly by powering the board and confirming that the OLED 
-turned on and cleared the display during startup. We checked that the framebuffer updated correctly by confirming that the circle appeared 
-on the screen and moved smoothly once the program started running. To test normal interaction, we slowly rotated the encoder in both 
-directions and confirmed that the encoder value increased and decreased as expected within the 0–255 range. We verified that when the
-encoder value was near 128 the ball slowed down significantly or stopped, and that turning the encoder farther away from the center 
-increased the ball’s speed. We also confirmed that the ball correctly bounced off the edges of the screen and continued moving without 
-leaving the display boundaries. We monitored the Serial output while performing these tests to confirm that the encoder value matched the 
-motion of the ball on the display. we rotated the encoder quickly and repeatedly reversed its direction to ensure that the debounce logic 
-prevented erratic jumps in the encoder value. Additionally, we let the program run for an extended period to ensure that the SPI
-communication and display updates remained stable and that no graphical artifacts appeared on the screen. Finally, we reset the board 
-several times to confirm that the OLED initialization sequence consistently restored the display and restarted the animation correctly.
+First, we soldered the OLED module pins to a breakout header to ensure  electrical connections to the breadboard and prevent 
+ wiring issues. We then verified that the SPI wiring and initialization sequence worked correctly by powering the board and 
+confirming that the OLED turned on and cleared the display during startup. We checked that the framebuffer updated correctly by confirming 
+that the circle appeared on the screen and moved smoothly once the program started running. To test normal interaction, we slowly rotated 
+the encoder in both  directions and confirmed that the encoder value increased and decreased as expected within the 0–255 range. We 
+verified that when the encoder value was near 128 the ball slowed down significantly or stopped, and that turning the encoder farther away 
+from the center increased the ball’s speed. We also confirmed that the ball correctly bounced off the edges of the screen and continued 
+moving without leaving the display boundaries. We monitored the Serial output while performing these tests to confirm that the encoder 
+value matched the motion of the ball on the display. we rotated the encoder quickly and repeatedly reversed its direction to ensure that 
+the debounce logic prevented erratic jumps in the encoder value. Additionally, we let the program run for an extended period to ensure that
+the SPI communication and display updates remained stable and that no graphical artifacts appeared on the screen. Finally, we reset the
+board several times to confirm that the OLED initialization sequence consistently restored the display and restarted the animation 
+correctly.
+
+
 
 
 
